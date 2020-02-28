@@ -13,22 +13,35 @@
 
   </head>
   <body>
+    <div class="container">
 
-    <div class="container text-center">
-      <form class="form-inline" id="indexation-form">
-
-        <label for="start-date">Contract start date:</label><br>
-        <input type="date" id="start-date" name="start-date">
-
-        <label for="signed-on">Contract signed on:</label><br>
-        <input type="date" id="signed-on" name="signed-on">
-
-        <label for="base-rent">Base rent:</label><br>
-        <input type="number" id="base-rent" name="base-rent"><br>
-
-        <button type="submit" class="btn btn-primary">Calculate</button>
+      <div class="form-container">
+        <h1>Rent indexation calculator</h1>
+        <form id="indexation-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="start-date">Contract start date</label>
+              <input type="date" class="form-control" id="start-date" name="start-date">
+            </div>
+            <div class="form-group">
+              <label for="signed-on">Contract signed on</label>
+              <input type="date" class="form-control" id="signed-on" name="signed-on">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="base-rent">Base rent</label>
+              <input type="number" class="form-control" id="base-rent" name="base-rent">
+            </div>
+          </div>
+          <div class="col text-center">
+            <button type="submit" class="btn btn-success btn-lg">Calculate</button>
+          </div>
+        </form>
+      </div>
 
       <ul id="results" class="list-inline"></ul>
+
     </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

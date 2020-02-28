@@ -5,7 +5,7 @@ class Indexator
   BASE = [1988, 1996, 2004, 2013]
 
   def base_index(base, base_year, base_month)
-    JSON.parse(open("https://fi7661d6o4.execute-api.eu-central-1.amazonaws.com/prod/indexes/#{base}/#{base_year}-#{sprintf('%02i', base_month)}").read)["index"]["MS_HLTH_IDX"]
+    JSON.parse(open("https://fi7661d6o4.execute-api.eu-central-1.amazonaws.com/prod/indexes/#{base}/#{base_year}-#{sprintf('%02i', base_month.month)}").read)["index"]["MS_HLTH_IDX"]
   end
 
   def current_index(base, current_year, current_month)
@@ -47,7 +47,7 @@ class Indexator
   def compute_indexation(params)
     current_index = current_index(base(params[:signed_on]), current_year(params[:start_date]), current_month(params[:start_date]))
     base_index = base_index(base(params[:signed_on]), base_year(params[:signed_on]), base_month(params[:signed_on]))
-    new_rent = params[:base_rent] * current_index / base_index
+    new_rent = params[:base_rent].to_i * current_index / base_index
     { new_rent: new_rent, base_index: base_index, current_index: current_index }
   end
 end

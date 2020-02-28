@@ -26,7 +26,7 @@ post '/v1/indexations' do
   Indexator.new.compute_indexation(body).to_json
 end
 
-get '/v1/indexations' do
-  body = { start_date: '2010-01-01', signed_on: '2009-12-01', base_rent: '600'}
-  Indexator.new.compute_indexation(body).to_json
-end
+# get '/v1/indexations' do
+#   body = { start_date: '2010-01-01', signed_on: '2009-12-01', base_rent: '600'}
+#   Indexator.new.compute_indexation(body).to_json
+# end
