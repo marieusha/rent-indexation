@@ -11,6 +11,7 @@ tmp/*
 storage/*
 !/storage/.keep
 
+web/node_modules
 node_modules
 yarn-error.log
 
