@@ -22,6 +22,18 @@ options "*" do
 end
 
 post '/v1/indexations' do
+  body = JSON.parse(request.body.read.to_s)
+  # Indexator.new.(body).to_json
+  # params = {
+  # start_date: Date.parse('2010-01-01'),
+  # signed_on: Date.parse('2009-12-01'),
+  # rent: 500
+  # }
 
-  { test: "it Works" }.to_json
+result = Indexator.new.compute_indexation(body).to_json
+result == {
+  new_rent: 598.2392776523702,
+  base_index: 110.75,
+  current_index: 132.51
+}
 end
