@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rent Indexation Calculator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/main.css">
+
+  </head>
+  <body>
+
+    <div class="container text-center">
+      <form class="form-group" id="indexation-form">
+
+        <label for="start-date">Contract start date:</label><br>
+        <input type="date" id="start-date" name="start-date">
+
+        <label for="signed-on">Contract signed on:</label><br>
+        <input type="date" id="signed-on" name="signed-on">
+
+        <label for="base-rent">Base rent:</label><br>
+        <input type="number" id="base-rent" name="base-rent"><br>
+
+        <label for="RegionOptions">Region:</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="RegionOptions" id="brussels" value="brussels">
+          <label class="form-check-label" for="brussels">Brussels</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="RegionOptions" id="wallonia" value="wallonia">
+          <label class="form-check-label" for="wallonia">Wallonia</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="RegionOptions" id="flanders" value="flanders">
+          <label class="form-check-label" for="flanders">Flanders</label>
+        </div>
+
+        <input type="submit" class="btn btn-primary">
+
+      <ul id="results" class="list-inline"></ul>
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="lib/index.js"></script>
+</body>
+</html>
