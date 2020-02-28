@@ -22,8 +22,6 @@ form.addEventListener('submit', (event) => {
   inputNewForm(event);
 });
 
-// const input = document.querySelector("#submit");
-// input.addEventListener("submit", inputNewForm);
 
 
 
