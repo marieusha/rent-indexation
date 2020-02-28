@@ -21,5 +21,6 @@ options "*" do
 end
 
 post '/v1/indexations' do
-  binding.pry
+
+  { test: "it Works" }.to_json
 end
