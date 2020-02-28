@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/cross_origin"
 require "pry-byebug"
+require_relative 'indexator'
 
 set :bind, '0.0.0.0'
 
