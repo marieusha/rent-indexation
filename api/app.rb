@@ -1,6 +1,8 @@
 require "sinatra"
 require "sinatra/cross_origin"
 
+set :bind, '0.0.0.0'
+
 configure do
   enable :cross_origin
 end
@@ -10,7 +12,6 @@ before do
 end
 
 # ROUTES ...
-
 options "http://localhost:8080" do
   response.headers["Allow"] = "GET, PUT, POST, DELETE, OPTIONS"
   response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
@@ -23,4 +24,5 @@ get '/' do
 end
 
 post '/v1/indexations' do
+
 end
