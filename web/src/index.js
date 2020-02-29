@@ -13,7 +13,7 @@ const updateForm = () => {
     .then((data) => {
       list.innerHTML = "";
       data.list.forEach((result) => {
-        const newRent = `<li>Your new rent is ${result.new_rent}, with a current index of ${result.current_index} and a base index of ${result.base_index}</li>`
+        const newRent = `<li>Your new indexed rent is ${result.new_rent} €, with a current index of ${result.current_index} and a base index of ${result.base_index}</li>`
         list.insertAdjacentHTML("afterbegin", newRent);
       });
     });
