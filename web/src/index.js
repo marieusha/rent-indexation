@@ -31,6 +31,4 @@ form.addEventListener('submit', (event) => {
 });
 
 startOver.addEventListener("click", updateForm);
-document.addEventListener("DOMContentLoaded", updateForm);
-
 
