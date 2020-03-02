@@ -37,7 +37,7 @@ class Indexator
 
   def last_birthday(start_date)
     start_date = Date.parse(start_date)
-    last_birthday = Date.new(Date.today.year, start_date.month, start_date.day)
+    last_birthday = Date.new(Date.today.year, start_date.month, start_date.day).prev_month
     last_birthday = last_birthday.prev_year if last_birthday > Date.today
     last_birthday
   end
