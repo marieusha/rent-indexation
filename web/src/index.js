@@ -9,7 +9,7 @@ const baseRent = document.getElementById('base-rent');
 
 const updateForm = (result) => {
   list.innerHTML = "";
-  const newRent = `<br>Your new indexed rent is <b>${result.new_rent.toFixed(2)} €</b>, with a current index of <b>${result.current_index}</b> and a base index of <b>${result.base_index}</b>`
+  const newRent = `<br><h1>Rent Indexation Result</h1><br>Your new indexed rent is <b>${result.new_rent.toFixed(2)} €</b>, with a current index of <b>${result.current_index}</b> and a base index of <b>${result.base_index}</b>`
   list.insertAdjacentHTML("afterbegin", newRent);
 };
 

@@ -21,7 +21,7 @@ class Indexator
   end
 
   def base(signed_on)
-    year = base_month(signed_on).year
+    year = Date.parse(signed_on).prev_month.year
     BASE.reverse.find do |i|
       i <= year
     end
