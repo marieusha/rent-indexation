@@ -7,16 +7,10 @@ const startDate = document.getElementById('start-date');
 const signedOn = document.getElementById('signed-on');
 const baseRent = document.getElementById('base-rent');
 
-const updateForm = () => {
-  fetch(url)
-    .then(response => response.json())
-    .then((data) => {
-      list.innerHTML = "";
-      data.list.forEach((result) => {
-        const newRent = `<li>Your new indexed rent is ${result.new_rent} €, with a current index of ${result.current_index} and a base index of ${result.base_index}</li>`
-        list.insertAdjacentHTML("afterbegin", newRent);
-      });
-    });
+  const updateForm = (result) => {
+  list.innerHTML = "";
+  const newRent = `<br>Your new indexed rent is <b>${result.new_rent.toFixed(2)} €</b>, with a current index of <b>${result.current_index}</b> and a base index of <b>${result.base_index}</b>`
+  list.insertAdjacentHTML("afterbegin", newRent);
 };
 
 const postInputForm = (input, callback) => {
@@ -38,6 +32,5 @@ form.addEventListener('submit', (event) => {
 
 startOver.addEventListener("click", updateForm);
 document.addEventListener("DOMContentLoaded", updateForm);
-
 
 
