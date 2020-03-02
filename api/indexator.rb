@@ -5,7 +5,7 @@ class Indexator
   BASE = [1988, 1996, 2004, 2013]
 
   def base_index(base, base_year, base_month)
-    JSON.parse(open("https://fi7661d6o4.execute-api.eu-central-1.amazonaws.com/prod/indexes/#{base}/#{base_year}-#{sprintf('%02i', base_month.month)}").read)["index"]["MS_HLTH_IDX"]
+    JSON.parse(open("https://fi7661d6o4.execute-api.eu-central-1.amazonaws.com/prod/indexes/#{base}/#{base_year}-#{sprintf('%02i', base_month)}").read)["index"]["MS_HLTH_IDX"]
   end
 
   def current_index(base, current_year, current_month)
