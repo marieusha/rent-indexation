@@ -18,10 +18,7 @@ const postInputForm = (input, callback) => {
     method: "POST",
     body: JSON.stringify(input)
   }).then(response => response.json())
-    .then((data) => {
-      console.log(data);
-      callback();
-    });
+    .then(callback);
 };
 
 form.addEventListener('submit', (event) => {
@@ -31,4 +28,3 @@ form.addEventListener('submit', (event) => {
 });
 
 startOver.addEventListener("click", updateForm);
-
