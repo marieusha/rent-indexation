@@ -17,8 +17,7 @@ class Indexator
   end
 
   def base_year(signed_on)
-    signed_on_date = Date.parse(signed_on)
-    signed_on_date.year
+    Date.parse(signed_on).prev_month.year
   end
 
   def base(signed_on)
