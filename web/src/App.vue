@@ -1,14 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <h1>Rent indexation calculator</h1>
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import Form from '@/components/Form.vue'
+  import Result from '@/components/Result.vue'
+
+  export default {
+    name: 'App',
+    components: {
+      'app-form': Form,
+      'app-result': Result
+    }
+  }
 </script>
 
 <style>
@@ -20,4 +27,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>

@@ -46,6 +46,7 @@ class Indexator
     current_index = current_index(base(params["signed_on"]), current_year(params["start_date"]), current_month(params["start_date"]))
     base_index = base_index(base(params["signed_on"]), base_year(params["signed_on"]), base_month(params["signed_on"]))
     new_rent = params["base_rent"].to_i * current_index / base_index
-    { new_rent: new_rent, base_index: base_index, current_index: current_index }
+    base_rent = params["base_rent"]
+    { new_rent: new_rent, base_index: base_index, current_index: current_index, base_rent: base_rent }
   end
 end
