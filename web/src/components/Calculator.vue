@@ -45,6 +45,5 @@
     border-radius: 4px;
     padding: 5em;
     margin: 5em;
-    width:80%;
   }
 </style>
