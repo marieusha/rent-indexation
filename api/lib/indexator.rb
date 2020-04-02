@@ -60,19 +60,22 @@ class Indexator
   end
 
   def validate_params(params)
+    # Check params are present
     raise ArgumentError.new("Must have start date") if params["start_date"].blank?
     raise ArgumentError.new("Must have signed on date") if params["signed_on"].blank?
     raise ArgumentError.new("Must have base rent") if params["base_rent"].blank?
-
+    
+    # Checks that contract is not less than a year old
     raise ArgumentError.new("Contract is less than a year old, there is no indexation") if last_birthday(params["start_date"]) == Date.parse(params["start_date"])
-
+    
     raise ArgumentError.new("Start date must be in the past") if Date.parse(params["start_date"]) >= Date.today
-
+    
     raise ArgumentError.new("Signed on date must be in the past") if Date.parse(params["signed_on"]) >= Date.today
-
+    
+    # Check that current_index and base_index do not return nil/"not found"
     raise ArgumentError.new("Index is not available for the specified dates, signed on date: #{params["signed_on"]}, start date: #{params["start_date"]} ") if current_index(base(params["signed_on"]), current_year(params["start_date"]), current_month(params["start_date"])).nil?
     
-    raise ArgumentError.new("Index is not available for the specified date: #{params["signed_on"]}") if base_index(params).nil?
+    raise ArgumentError.new("Index is not available for the specified date: #{params["signed_on"]}") if base_index(base(params["signed_on"]), base_year(params["signed_on"]), base_month(params["signed_on"])).nil?
 
   end
 end
