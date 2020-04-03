@@ -15,12 +15,15 @@
         <template v-if="$v.startDate.$error">
           <div
             class="error"
-            v-if="!$v.startDate.dateBeforeToday">Invalid date, it must be before today.</div>
+            v-if="!$v.startDate.dateBeforeToday">Invalid date: it must be before today.</div>
+          <div
+            class="error"
+            v-if="!$v.startDate.dateAtLeastOneYear">Invalid date: choose a date at least one year ago, otherwise there is no indexation.</div>
           <div
             class="error"
             v-if="!$v.startDate.required">This field is required</div>
         </template>
-
+        <br>
         <div class="form-group">
           <label for="signed-on">Contract signed on</label>
           <input
@@ -33,12 +36,16 @@
         <template v-if="$v.signedOn.$error">
           <div
             class="error"
-            v-if="!$v.signedOn.dateBeforeToday">Invalid date, it must be before today.</div>
+            v-if="!$v.signedOn.dateBeforeToday">Invalid date: it must be before today.</div>
+          <div
+            class="error"
+            v-if="!$v.signedOn.dateAtLeastOneYear">Invalid date: choose a date at least one year ago, otherwise there is no indexation.</div>
           <div
             class="error"
             v-if="!$v.signedOn.required">This field is required</div>
         </template>
       </div>
+      <br>
 
       <div class="form-row">
         <div class="form-group">
@@ -50,14 +57,16 @@
             v-model="baseRent"
             @blur="$v.baseRent.$touch()">
         </div>
-        <template v-if="$v.startDate.$error">
+        <template v-if="$v.baseRent.$error">
           <div
             class="error"
             v-if="!$v.baseRent.required">This field is required</div>
+          <div
+            class="error"
+            v-if="!$v.baseRent.greatThanZero">This number must be greater than zero</div>
         </template>
-
       </div>
-
+      <br>
       <div class="submit">
         <button
           class="btn btn-primary"
@@ -83,17 +92,26 @@
         required,
         dateBeforeToday: val => {
           return dayjs(val) < dayjs()
+        },
+        dateAtLeastOneYear: val => {
+          return dayjs(val) < dayjs().subtract('1', 'year')
         }
       },
       signedOn: {
         required,
         dateBeforeToday: val => {
           return dayjs(val) < dayjs()
+        },
+        dateAtLeastOneYear: val => {
+          return dayjs(val) < dayjs().subtract('1', 'year')
         }
       },
       baseRent: {
         required,
-        numeric
+        numeric,
+        greatThanZero: val => {
+          return val > 0
+        }
 
       }
     },
