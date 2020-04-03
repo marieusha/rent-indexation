@@ -4,6 +4,12 @@ require "pry-byebug"
 RSpec.describe Indexator do
   describe '#compute_indexation' do
 
+    it 'returns the correct calculated indexation response ' do
+      body = {'signed_on' => '2010-07-25', 'start_date' => '2010-09-01', 'base_rent' => '500'}
+      response = { new_rent: 584.1759801312755, current_index: 131.72, base_index: 112.74, base_rent: '500' }
+      expect(Indexator.new.compute_indexation(body)).to eq response
+    end
+
     it 'returns an ArgumentError if signed_on blank' do
       body = {'signed_on' => '', 'start_date' => '2010-09-01', 'base_rent' => '500'}  
       expect{Indexator.new.compute_indexation(body)}.to raise_error(ArgumentError)   
@@ -17,12 +23,6 @@ RSpec.describe Indexator do
     it 'returns an ArgumentError if base_rent blank' do
       body = {'signed_on' => '2010-07-25', 'start_date' => '2010-09-01', 'base_rent' => ''}  
       expect{Indexator.new.compute_indexation(body)}.to raise_error(ArgumentError)   
-    end
-
-    it 'returns the calculated response ' do
-      body = {'signed_on' => '2010-07-25', 'start_date' => '2010-09-01', 'base_rent' => '500'}
-      response = { new_rent: 584.1759801312755, current_index: 131.72, base_index: 112.74, base_rent: '500' }
-      expect(Indexator.new.compute_indexation(body)).to eq response
     end
 
     it 'returns an ArgumentError if contract is less than a year old' do 
