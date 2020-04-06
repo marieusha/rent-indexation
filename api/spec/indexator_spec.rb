@@ -16,7 +16,7 @@ RSpec.describe Indexator do
     end
 
     it 'returns an ArgumentError if start_date blank' do
-      body = {'signed_on' => '2010-07-25', 'start_date' => nil, 'base_rent' => '500'}  
+      body = {'signed_on' => '2010-07-25', 'start_date' => '', 'base_rent' => '500'}  
       expect{Indexator.new.compute_indexation(body)}.to raise_error(ArgumentError)   
     end
 
