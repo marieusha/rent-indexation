@@ -10,7 +10,7 @@
             class="form-control"
             id="start-date"
             v-model="startDate"
-            @blur="$v.startDate.$touch()">
+            @blur="$v.startDate.$touch">
         </div>
         <template v-if="$v.startDate.$error">
           <div
@@ -31,7 +31,7 @@
             class="form-control"
             id="signed-on"
             v-model="signedOn"
-            @blur="$v.signedOn.$touch()">
+            @blur="$v.signedOn.$touch">
         </div>
         <template v-if="$v.signedOn.$error">
           <div
@@ -55,7 +55,7 @@
             class="form-control"
             id="base-rent"
             v-model="baseRent"
-            @blur="$v.baseRent.$touch()">
+            @blur="$v.baseRent.$touch">
         </div>
         <template v-if="$v.baseRent.$error">
           <div
@@ -118,16 +118,14 @@
     methods: {
       onSubmit () {
         console.log(this.$v)
-        if (this.$v.$invalid) {
-          return this.$v.$touch()
-        }
+        if (this.$v.$invalid) return this.$v.$touch()
         const formData = {
           start_date: this.startDate,
           signed_on: this.signedOn,
           base_rent: this.baseRent
         }
         console.log(formData)
-        this.$emit('formSubmit', formData)
+        this.$emit('form-submit', formData)
       }
     }
   }

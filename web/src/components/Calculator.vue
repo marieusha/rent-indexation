@@ -3,12 +3,12 @@
     <app-form
       class="calculator-container"
       v-if="!formResult"
-      @formSubmit="onSubmit"/>
-    <result
+      @form-submit="onSubmit"/>
+    <app-result
       class="calculator-container"
       v-else
       :result="formResult"
-      @startOver="formResult=null"/>
+      @start-over="formResult=null"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@
 
   import axios from 'axios'
   import AppForm from '@/components/Form'
-  import Result from '@/components/Result'
+  import AppResult from '@/components/Result'
 
   export default {
     data () {
@@ -29,12 +29,12 @@
         console.log(formData)
         axios.post('http://localhost:4567/v1/indexations', formData)
           .then(res => (this.formResult = res.data))
-          .catch(error => console.log(error))
+          .catch(error => console.error(error))
       }
     },
     components: {
       AppForm,
-      Result
+      AppResult
     }
   }
 </script>

@@ -6,15 +6,8 @@
 </template>
 
 <script>
-  import Form from '@/components/Form.vue'
-  import Result from '@/components/Result.vue'
-
   export default {
-    name: 'App',
-    components: {
-      'app-form': Form,
-      'app-result': Result
-    }
+    name: 'App'
   }
 </script>
 
